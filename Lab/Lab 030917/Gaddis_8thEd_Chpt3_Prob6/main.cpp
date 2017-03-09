@@ -19,12 +19,12 @@ using namespace std; //Name-space under which systems libraries exist
 //Execution begins here 
 int main(int argc, char** argv) {
     //Declare variables 
-    int cookies=48;       //48 cookies
-    float sugar=1.5f,     //1.5 cups of sugar
-            flower=2.75f, //2.75 cups of flower
-            butter=1.0f;  //1 cup of butter
-    int ncokies;          //number of cookies
-    float R,Sugar,Flower,Butter;              //
+    int cookies=48;              //48 cookies
+    float sugar=1.5f,            //1.5 cups of sugar
+            flower=2.75f,        //2.75 cups of flower
+            butter=1.0f;         //1 cup of butter
+    int ncokies;                 //Number of cookies
+    float R,Sugar,Flower,Butter; //Sugar,Butter, and Flower needed.
     
     //Input data
     cout<<"This program calculates the amount of ingredients you need to "<<endl;
@@ -33,10 +33,10 @@ int main(int argc, char** argv) {
     cin>>ncokies;
     
     //Map inputs to outputs or process the data
-    R=ncokies/cookies;
-    Sugar=sugar*R;
-    Flower=flower*R;
-    Butter=butter*R;    
+    R=ncokies/cookies; //Rate
+    Sugar=sugar*R;     //Sugar needed
+    Flower=flower*R;   //Flower needed
+    Butter=butter*R;   //Butter needed  
             
     //Output the transformed data
     cout<<"The ingredients you need to make "<<ncokies<<" cookies are: "<<endl;
