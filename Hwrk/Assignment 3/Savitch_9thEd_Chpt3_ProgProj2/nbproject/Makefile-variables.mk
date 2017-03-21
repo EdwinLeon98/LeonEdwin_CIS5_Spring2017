@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=gradedependentif
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/gradedependentif
+CND_ARTIFACT_NAME_Debug=savitch_9thed_chpt3_progproj2
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/savitch_9thed_chpt3_progproj2
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=gradedependentif.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/gradedependentif.tar
+CND_PACKAGE_NAME_Debug=savitch9thedchpt3progproj2.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/savitch9thedchpt3progproj2.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=gradedependentif
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/gradedependentif
+CND_ARTIFACT_NAME_Release=cpp_template
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/cpp_template
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=gradedependentif.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/gradedependentif.tar
+CND_PACKAGE_NAME_Release=cpptemplate.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/cpptemplate.tar
 #
 # include compiler specific variables
 #
