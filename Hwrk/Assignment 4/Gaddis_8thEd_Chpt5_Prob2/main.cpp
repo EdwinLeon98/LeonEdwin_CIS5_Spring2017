@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     //Map inputs to outputs or process the data
     for(int i=0;i<=127;i++){
         cout<<static_cast<char>(i);
-        if(1%16==15)cout<<endl;
+        if(i%16==15)cout<<endl;
     }
     
     //Exit
