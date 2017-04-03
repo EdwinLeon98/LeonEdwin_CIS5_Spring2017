@@ -39,9 +39,9 @@ int main(int argc, char** argv) {
         cout<<"Type 3 for Savitch practice program 7"<<endl;
         cout<<"Type 4 for Savitch practice program 1"<<endl;
         cout<<"Type 5 for Savitch practice program 2"<<endl;
-        cout<<"-"<<endl;
-        cout<<"-"<<endl;
-        cout<<"-"<<endl;
+        cout<<"Type 6 for Gaddis problem 1"<<endl;
+        cout<<"Type 7 for Gaddis problem 20"<<endl;
+        cout<<"Type 8 for Gaddis problem 21"<<endl;
         cout<<"-"<<endl<<endl;
         
         //Input the choice
@@ -306,18 +306,84 @@ int main(int argc, char** argv) {
     
                 break;
             }
+            
             case '6':{
-                cout<<"In problem solution 6"<<endl;
+                //Declare variables and initialize
+                int n,sum=0;
+
+                //Input data
+                cout<<"This program adds up all the integers from 1 to N"<<endl;
+                cout<<"Type an integer between (1-360000) for N (must be positive)"<<endl;
+                cin>>n; //Integer
+
+                //Map inputs to outputs or process the data
+                for(int i=1;i<=n;i++){
+                    sum+=i;
+                }
+
+                //Output the transformed data
+                cout<<"The computed sum of 1 to "<<n<<" = "<<sum<<endl;
+
                 break;
             }
+            
             case '7':{
-                cout<<"In problem solution 7"<<endl;
+               //Set the random number seed
+                srand(static_cast<unsigned int>(time(0)));
+
+                //Declare variables 
+                unsigned int n;
+
+                //Input data
+                cout<<"Guess the random number between 1 to 100"<<endl;
+                char randNum=rand()%100+1; //[1,100]
+
+                do{
+                    cin>>n;
+                    if(!(n==randNum)){
+                        if(n<randNum)
+                            cout<<"Too low, try again"<<endl<<endl;
+                        else
+                            cout<<"Too high, try again"<<endl<<endl;
+                    }
+                }while(!(n==randNum));    
+
+                //Output the transformed data
+                cout<<"The guess matches the random number"<<endl;
+                
                 break;
             }
+            
             case '8':{
-                cout<<"In problem solution 8"<<endl;
+                //Set the random number seed
+                srand(static_cast<unsigned int>(time(0)));
+
+                //Declare variables 
+                unsigned int n; //Guess
+                int atempts=0;
+
+                //Input data
+                cout<<"Guess the random number between 1 to 100"<<endl;
+                char randNum=rand()%100+1; //[1,100]
+
+                do{
+                    cin>>n; //Guess
+                    if(!(n==randNum)){
+                        atempts++; //Attempt counter
+                        if(n<randNum)
+                            cout<<"Too low, try again"<<endl<<endl;
+                        else
+                            cout<<"Too high, try again"<<endl<<endl;
+                    }
+                }while(!(n==randNum));    
+
+                //Output the transformed data
+                cout<<"The guess matches the random number"<<endl<<endl;
+                cout<<"The number of attempts is: "<<atempts<<endl;
+                
                 break;
             }
+            
             case '9':{
                 cout<<"In problem solution 9"<<endl;
                 break;
