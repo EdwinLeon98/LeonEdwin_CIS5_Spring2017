@@ -8,8 +8,8 @@
 
 //System Libraries
 #include <iostream>  //Input - Output Library
-#include <cstdlib>  
-#include <ctime>     
+#include <cstdlib>   //Random Library
+#include <ctime>     //Time Library
 using namespace std; //Name-space under which systems libraries exist
 
 //User Libraries
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
     int randN4=rand()%9+1;//[1,9]
     int randN5=rand()%9+1;//[1,9]
     
-    //Starting game
+    //Starting game and instructions
     cout<<"Decipher the 5-digit code"<<endl;
     cout<<"You have 12 attempts to decipher the code"<<endl;
     cout<<"You MUST enter a digit from 1-9"<<endl;
@@ -49,8 +49,8 @@ int main(int argc, char** argv) {
     //Do-While Loop until 12 attempts
     do{
         //Restarts the right and close numbers
-        int right=0,
-            close=0;
+        int right=0, //Right number, Right place
+            close=0; //Right number, Wrong place
         
         //Input 5-digit code
         cout<<"Attempt: "<<attps<<endl;
@@ -58,71 +58,76 @@ int main(int argc, char** argv) {
       
         //Determines the correct numbers in the right or wrong places
         if(!((n1==randN1)&&(n2==randN2)&&(n3==randN3)&&(n4==randN4)&&(n5==randN5))){
+            
+            //Check if the values for n1, n2, n3, n4, and n5 are within the range
             if(!(n1<=9)||!(n2<=9)||!(n3<=9)||!(n4<=9)||!(n5<=9)){
                 cout<<"You enter a wrong digit"<<endl;
+                return 1; //End program if entered wrong digit
             }
             {
-                //First Number
+                //First Number Check
                 if(n1==randN1)
-                    right++;
+                    right++; //Counts the correct numbers in the right position
                 else if(!(n1==randN1)){
                     if(n1==randN2||n1==randN3||n1==randN4||n1==randN5){
-                    close++;
+                    close++; //Counts the correct numbers in the wrong position
                    }   
                 }
                 
-                //Second Number
+                //Second Number Check
                 if(n2==randN2)
-                    right++;
+                    right++; //Counts the correct numbers in the right position
                 else if(!(n2==randN2)){
                     if(n2==randN1||n2==randN3||n2==randN4||n2==randN5){
-                    close++;
+                    close++; //Counts the correct numbers in the wrong position
                    }
                 }
                 
-                //Third Number
+                //Third Number Check
                 if(n3==randN3)
-                    right++;
+                    right++; //Counts the correct numbers in the right position
                 else if(!(n3==randN3)){
                     if(n3==randN1||n3==randN2||n3==randN4||n1==randN5){
-                    close++;
+                    close++; //Counts the correct numbers in the wrong position
                    }
                 }
                 
-                //Fourth Number
+                //Fourth Number Check
                 if(n4==randN4)
-                    right++;
+                    right++; //Counts the correct numbers in the right position
                 else if(!(n4==randN4)){
                     if(n4==randN1||n4==randN2||n4==randN3||n4==randN5){
-                    close++;
+                    close++; //Counts the correct numbers in the wrong position
                    }
                 }
                 
-                //Fifth Number
+                //Fifth Number Check
                 if(n5==randN5)
-                    right++;
+                    right++; //Counts the correct numbers in the right position
                 else if(!(n5==randN5)){
                     if(n5==randN1||n5==randN2||n5==randN3||n5==randN4){
-                    close++;
+                    close++; //Counts the correct numbers in the wrong position
                    }
                 }
                 
             }
-            
+            //Outputs the how many right numbers in the right position
             cout<<"Right Number, Right Position: "<<right<<endl;
+            //Outputs the how many right numbers in the wrong position
             cout<<"Right Number, Wrong Position: "<<close<<endl;
-             cout<<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "<<randN5<<endl;
             cout<<endl;
         }
         
         //Ends program after 12 failed attempts to decipher the code
-        attps++;
+        attps++; //Counts the attempts
         if(attps==12){
+            
+            //Outputs FAILED message and shows the correct code
             cout<<"You have failed to decipher the code!"<<endl;
             cout<<"The code was: "
                     <<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "
                     <<randN5<<endl;
-            return 0;
+            return 0; //End program
         }
         
     }while(!((n1==randN1)&&(n2==randN2)&&(n3==randN3)&&(n4==randN4)&&(n5==randN5)));
@@ -130,6 +135,7 @@ int main(int argc, char** argv) {
     //Outputs Congratulations message
     cout<<"Congratulations! You have deciphered the code!"<<endl;
     cout<<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "<<randN5<<endl;
+    
     //Exit stage right!
     return 0;
 }
