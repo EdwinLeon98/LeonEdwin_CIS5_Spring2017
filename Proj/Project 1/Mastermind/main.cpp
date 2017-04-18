@@ -41,7 +41,10 @@ int main(int argc, char** argv) {
     //Starting game
     cout<<"Decipher the 5-digit code"<<endl;
     cout<<"You have 12 attempts to decipher the code"<<endl;
-    cout<<"Enter your first guess"<<endl;
+    cout<<"You MUST enter a digit from 1-9"<<endl;
+    cout<<"Please press 'SPACE BAR' after each digit and"<<endl;
+    cout<<"press 'ENTER' to submit your guess"<<endl;
+    cout<<endl;
     
     //Do-While Loop until 12 attempts
     do{
@@ -52,9 +55,12 @@ int main(int argc, char** argv) {
         //Input 5-digit code
         cout<<"Attempt: "<<attps<<endl;
         cin>>n1>>n2>>n3>>n4>>n5;
-        
+      
         //Determines the correct numbers in the right or wrong places
         if(!((n1==randN1)&&(n2==randN2)&&(n3==randN3)&&(n4==randN4)&&(n5==randN5))){
+            if(!(n1<=9)||!(n2<=9)||!(n3<=9)||!(n4<=9)||!(n5<=9)){
+                cout<<"You enter a wrong digit"<<endl;
+            }
             {
                 //First Number
                 if(n1==randN1)
@@ -105,6 +111,7 @@ int main(int argc, char** argv) {
             
             cout<<"Right Number, Right Position: "<<right<<endl;
             cout<<"Right Number, Wrong Position: "<<close<<endl;
+             cout<<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "<<randN5<<endl;
             cout<<endl;
         }
         
