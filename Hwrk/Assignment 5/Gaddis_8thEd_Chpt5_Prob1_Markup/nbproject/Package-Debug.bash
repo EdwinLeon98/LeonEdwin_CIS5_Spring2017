@@ -6,11 +6,11 @@
 
 # Macros
 TOP=`pwd`
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=GNU-MacOSX
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
-CND_DLIB_EXT=dll
+CND_DLIB_EXT=dylib
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
 OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gaddis_8thed_chpt5_prob1_markup
@@ -61,7 +61,7 @@ mkdir -p ${NBTMPDIR}
 # Copy files and create directories and links
 cd "${TOP}"
 makeDirectory "${NBTMPDIR}/gaddis8thedchpt5prob1markup/bin"
-copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
+copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file

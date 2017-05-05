@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Cygwin-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
+CND_PLATFORM_Debug=GNU-MacOSX
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
 CND_ARTIFACT_NAME_Debug=paycheckdependentif
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/paycheckdependentif
-CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/paycheckdependentif
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
 CND_PACKAGE_NAME_Debug=paycheckdependentif.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/paycheckdependentif.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/paycheckdependentif.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows

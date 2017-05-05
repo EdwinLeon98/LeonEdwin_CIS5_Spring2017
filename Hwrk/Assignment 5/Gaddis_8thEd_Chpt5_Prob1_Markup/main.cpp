@@ -16,25 +16,31 @@ using namespace std; //Name-space under which systems libraries exist
 const float PERCENT=100.0f;
 
 //Function Prototypes
-void calculateRetail(float,float,float);
+void calculateRetail(float,float);
 
 //Execution begins here 
 int main(int argc, char** argv) {
     //Declare variables 
+    float saleCst, //Sales cost
+          markup,  //Markup
+          retailP; //Retail Price
     
     //Initialize variables
-    
-    //Input data
-    
-    //Map inputs to outputs or process the data
-    
+    cout<<"This program calculates the retail price"<<endl;
+    cout<<"Type in the sales cost"<<endl;
+    cin>>saleCst;
+    cout<<"Type in the markup"<<endl;
+    cin>>markup;
+
     //Output the transformed data
+    calculateRetail(saleCst,markup); //Calls function
     
     //Exit stage right!
     return 0;
 }
 
-void calculateRetail(float saleCst,float markup,float retailP){
-    retailP=saleCst+(saleCst*PERCENT/markup);
-    cout<<"The retail price is: "<<retailp<<endl;
+void calculateRetail(float saleCst,float markup){
+    float retailP;
+    retailP=saleCst+(saleCst*markup/PERCENT);
+    cout<<"The retail price is: "<<retailP<<endl;
 }
