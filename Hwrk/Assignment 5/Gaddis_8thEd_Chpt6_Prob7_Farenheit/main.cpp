@@ -22,15 +22,11 @@ void celcius(float);
 int main(int argc, char** argv) {
     //Declare variables 
     float fheit;
-    //Initialize variables
- 
-    //Input data
-    
-    //Map inputs to outputs or process the data
     
     //Output the transformed data
     cout<<"Farenheit"<<setw(10)<<"Celcius"<<endl;
     celcius(fheit);
+    
     //Exit stage right!
     return 0;
 }

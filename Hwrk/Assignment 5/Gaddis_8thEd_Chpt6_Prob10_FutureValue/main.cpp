@@ -16,7 +16,7 @@ using namespace std; //Name-space under which system libraries exist
 //Global Constants
 
 //Function Prototypes all Savings function for a Future Value
-float futureValue(float,float,int);//Present Value using Power Function
+float futureValue(float,float,int);
 
 
 //Execution begins here

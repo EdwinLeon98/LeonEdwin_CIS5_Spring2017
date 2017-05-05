@@ -15,8 +15,8 @@ using namespace std; //Name-space under which system libraries exist
 
 //Global Constants
 
-//Function Prototypes all Savings function for a Future Value
-float stockProfit(float,float,float,float,float);//Present Value using Power Function
+//Function Prototypes
+float stockProfit(float,float,float,float,float);
 
 //Execution begins here
 int main(int argc, char** argv) {
