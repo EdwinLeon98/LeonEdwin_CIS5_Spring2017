@@ -23,9 +23,7 @@ void coinToss(int);
 int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     //Declare variables 
-    int toss,
-        tails,
-        heads;
+    int toss;
 
     //Initialize variables
     cout<<"Type in the number of times you want to toss the coin"<<endl;
@@ -33,12 +31,13 @@ int main(int argc, char** argv) {
     
     //Output the transformed data
     coinToss(toss);
+    
     //Exit stage right!
     return 0;
 }
 
 void coinToss(int toss){
-    for(int i;i<=toss;i++){
+    for(int i=1;i<=toss;i++){
         char coin=rand()%2+1;
         if(coin==2){
             cout<<"Tails"<<endl;

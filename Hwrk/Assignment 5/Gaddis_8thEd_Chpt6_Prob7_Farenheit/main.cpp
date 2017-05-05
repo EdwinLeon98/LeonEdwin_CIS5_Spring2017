@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
     //Map inputs to outputs or process the data
     
     //Output the transformed data
+    cout<<"Farenheit"<<setw(10)<<"Celcius"<<endl;
     celcius(fheit);
     //Exit stage right!
     return 0;
@@ -38,8 +39,8 @@ void celcius(float fheit){
     cout<<setprecision(2)<<fixed<<showpoint;
     float celcius;
     for(int i=0;i<=20;i++){
-        celcius=(5/9)*(i-32);
-        cout<<setw(2)<<i<<setw(7)<<celcius<<endl;
+        celcius=0.55*(i-32);
+        cout<<setw(5)<<i<<setw(13)<<celcius<<endl;
     }
 }
 

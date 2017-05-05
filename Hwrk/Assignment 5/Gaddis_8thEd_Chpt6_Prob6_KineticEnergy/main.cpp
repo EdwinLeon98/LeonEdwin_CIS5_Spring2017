@@ -15,27 +15,30 @@ using namespace std; //Name-space under which systems libraries exist
 //Global Constants 
 
 //Function Prototypes
-void kineticEnergy(float,float);
+void kineticEnergy(float,float,float);
 
 //Execution begins here 
 int main(int argc, char** argv) {
     //Declare variables 
     float mass,
-          vlcity;
+          vlcity,
+          kEnergy;
     
     //Initialize variables
+    cout<<"This program calculates the kinetic energy"<<endl;
+    cout<<"Type in the mass in kilograms: "<<endl;
     cin>>mass;
+    cout<<"Type in the velocity in meters per second"<<endl;
     cin>>vlcity;
     
     //Output the transformed data
-    kineticEnergy(mass,vlcity);
+    kineticEnergy(mass,vlcity,kEnergy);
     
     //Exit stage right!
     return 0;
 }
 
-void kineticEnergy(float mass,float vlcity){
-    float kEnergy;
-    kEnergy=(1/2)*mass*vlcity*vlcity;
+void kineticEnergy(float mass,float vlcity,float kEnergy){
+    kEnergy=0.5*mass*vlcity*vlcity;
     cout<<"The kinetic energy is: "<<kEnergy<<endl;
 }
