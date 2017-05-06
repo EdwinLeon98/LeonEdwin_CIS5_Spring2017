@@ -40,6 +40,7 @@ float presentValue(float,float,int);
 float futureValue(float,float,int);
 float stockProfit(float,float,float,float,float);
 float stockProfit2(float,float,float,float,float);
+void newP(float,float,int,int);
 
 //Execution begins here
 int main(int argc, char** argv) {
@@ -80,7 +81,47 @@ int main(int argc, char** argv) {
 }
 
 void prob10(void){
+    //Declare variables 
+    float br,
+          dr;
+    int intP,
+        yrs;
     
+    //Initialize variables
+    cout<<"This program calculates the new population"<<endl;
+    cout<<"Type in the initial population (must be greater than 1)"<<endl;
+    cin>>intP;
+    do{
+        if(intP<=1){
+            cout<<"Invalid Number, Try Again"<<endl;
+            cin>>intP;
+        }
+    }while(intP<=1);
+    cout<<"Type in the birth rate"<<endl;
+    cin>>br;
+    cout<<"Type in the death rate"<<endl;
+    cin>>dr;
+    cout<<"Type in the years"<<endl;
+    cin>>yrs;
+    do{
+        if(yrs<1){
+            cout<<"Invalid Number, Try Again"<<endl;
+            cin>>yrs;
+        }
+    }while(yrs<1);
+ 
+    //Output the transformed data
+    newP(br,dr,intP,yrs);
+}
+
+void newP(float br,float dr,int intP,int yrs){ 
+    float newPop;
+    newPop=(intP+(br*intP)-(dr*intP))*yrs;
+    if(newPop>1){
+        cout<<"The new population after "<<yrs<<" years is "<<newPop<<endl;
+    }else if(newPop<=0){
+        cout<<"The population is 0"<<endl;
+    }
 }
 
 void prob9(void){
@@ -95,7 +136,7 @@ void prob9(void){
     
     //Initialize variables
     cout<<"This program calculates the total stock profit or loss"<<endl;
-    cout<<"Type in the number of stocks"<<endl;
+    cout<<"Type in the number of stocks "<<endl;
     cin>>nStock;
     cout<<endl;
     
@@ -326,13 +367,16 @@ void calculateRetail(float saleCst,float markup){
 }
 
 void menu(void){
-    cout<<endl<<endl<<"Type 0 to exit"<<endl;
-    cout<<"Type 1 for Making an 'X' Problem"<<endl;
-    cout<<"Type 2 for Asterisk '*' Problem"<<endl;
-    cout<<"Type 3 for Check Problem"<<endl;
-    cout<<"Type 4 for ISP Problem"<<endl;
-    cout<<"Type 5 for Gross Pay Problem"<<endl;
-    cout<<"Type 6 for Problem 6"<<endl<<endl;
+    cout<<endl<<endl<<"Type 0 for Population Problem"<<endl;
+    cout<<"Type 1 for Retail Price Problem"<<endl;
+    cout<<"Type 2 for Falling Distance Problem"<<endl;
+    cout<<"Type 3 for Kinetic Energy Problem"<<endl;
+    cout<<"Type 4 for Farenheit Problem"<<endl;
+    cout<<"Type 5 for Coin Toss Problem"<<endl;
+    cout<<"Type 6 for Present Value Problem"<<endl;
+    cout<<"Type 7 for Future Value Problem"<<endl;
+    cout<<"Type 8 for Stock Profit Problem"<<endl;
+    cout<<"Type 9 for Total Stock Profit Problem"<<endl<<endl;
 }
 
 
