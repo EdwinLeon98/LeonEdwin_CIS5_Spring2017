@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=GradedQuiz
+PROJECTNAME=LinearSearch
 
 # Active Configuration
 DEFAULTCONF=Debug

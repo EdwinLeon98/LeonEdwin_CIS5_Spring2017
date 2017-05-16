@@ -2,12 +2,11 @@
  * File:   main.cpp
  * Author: Edwin Leon
  * Created on May 16, 2017, 10:51 AM
- * Purpose:  Grade Quiz
+ * Purpose:  Grade your DMV Test
  */
 
 //System Libraries Here
 #include <iostream>
-#include <cstring>
 #include <fstream>
 using namespace std;
 
@@ -19,18 +18,32 @@ using namespace std;
 void rdFile(string,char [],int);   //Read the Answer Key and Student Response
 void wrtFile(string,int [],int);  //Write the results
 void grade(char [],char [],int [],int);//Compare and grade
-void score(int [],int);              //Numerical result
+int score(int [],int);              //Numerical result
 
 //Program Execution Begins Here
 int main(int argc, char** argv) {
     //Declare all Variables Here
+    const int SIZE=20;
+    char key[SIZE],stuResp[SIZE];
+    int scr[SIZE]={};
+    string keyFn,stuRFn,scoreFn;
     
-    //Initialize variables
+    //Initialize string variables
+    keyFn="key.dat";
+    stuRFn="answer.dat";
+    scoreFn="result.dat";
     
     //Input data
+    rdFile(keyFn,key,SIZE);
+    rdFile(stuRFn,stuResp,SIZE);
+    
+    //Map inputs to outputs or process the data
+    grade(key,stuResp,scr,SIZE);
     
     //Output the transformed data
-   
+    cout<<"Your Test result score was = "<<score(scr,SIZE)<<endl;
+    wrtFile(scoreFn,scr,SIZE);
+    
     //Exit
     return 0;
 }
@@ -48,7 +61,7 @@ void wrtFile(string fn,int pts[],int n){
     out.close();
 }
 
-void score(int pts[],int n){
+int score(int pts[],int n){
     int sum=0;
     for(int i=0;i<n;i++){
         sum+=pts[i];
@@ -69,7 +82,7 @@ void rdFile(string fn,char a[],int n){
     //Open the file
     in.open(fn.c_str());
     //Read the values
-    while(in>>a[cnt++]);
+    while(in>>a[cnt++]&&cnt<n);
     //Close the file
     in.close();
 }
