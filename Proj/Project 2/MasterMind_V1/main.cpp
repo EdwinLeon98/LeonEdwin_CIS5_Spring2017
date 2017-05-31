@@ -2,8 +2,8 @@
 /* 
  * File:   main.cpp
  * Author: Edwin Leon
- * Created on April 14, 2017, 11:43 aM
- * Purpose: Mastermind Version 2
+ * Created on May 31, 2017, 10:18 AM
+ * Purpose: Mastermind Version 1
  */
 
 //System Libraries
@@ -17,7 +17,8 @@ using namespace std; //Name-space under which systems libraries exist
 //Global Constants 
 
 //Function Prototypes
-int code(int [],int);
+void code(void);
+void playMM();
 
 //Execution begins here 
 int main(int argc, char** argv) {
@@ -33,11 +34,7 @@ int main(int argc, char** argv) {
     int attps=1;     //Attempts
 
     //Random Number Generator
-    int randN1=rand()%9+1;//[1,9]
-    int randN2=rand()%9+1;//[1,9]
-    int randN3=rand()%9+1;//[1,9]
-    int randN4=rand()%9+1;//[1,9]
-    int randN5=rand()%9+1;//[1,9]
+    code();
 
     //Starting game
     cout<<"Decipher the 5-digit code"<<endl;
@@ -146,3 +143,12 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+void code(void){
+    int randN1=rand()%9+1;//[1,9]
+    int randN2=rand()%9+1;//[1,9]
+    int randN3=rand()%9+1;//[1,9]
+    int randN4=rand()%9+1;//[1,9]
+    int randN5=rand()%9+1;//[1,9]
+    
+}
+void playMM()
