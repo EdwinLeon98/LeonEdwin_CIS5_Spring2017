@@ -2,14 +2,14 @@
 /* 
  * File:   main.cpp
  * Author: Edwin Leon
- * Created on May 31, 2017, 10:18 AM
- * Purpose: Mastermind Version 1
+ * Created on May 31, 2017, 11:58 AM
+ * Purpose: Mastermind V1 - Project 2
  */
 
 //System Libraries
 #include <iostream>  //Input - Output Library
-#include <cstdlib>  
-#include <ctime>     
+#include <cstdlib>   //Random Number Library
+#include <ctime>     //Time Library
 using namespace std; //Name-space under which systems libraries exist
 
 //User Libraries
@@ -17,138 +17,181 @@ using namespace std; //Name-space under which systems libraries exist
 //Global Constants 
 
 //Function Prototypes
-void code(void);
-void playMM();
+void code(char []);
+
+bool testWin(char [], char [],char []);
+void testPWin(char [], char [],char []);
 
 //Execution begins here 
-int main(int argc, char** argv) {
-    //Set the random seed number
+int main(int argc, char** argv) {    
+    //Set the random number seed
     srand(static_cast<unsigned int>(time(0)));
     
-    //Declare variables 
-    unsigned int n1, //First Number Guess
-                 n2, //Second Number Guess
-                 n3, //Third Number Guess
-                 n4, //Fourth Number Guess
-                 n5; //Fifth Number Guess
-    int attps=1;     //Attempts
-
-    //Random Number Generator
-    code();
-
-    //Starting game
-    cout<<"Decipher the 5-digit code"<<endl;
+    //Declare variables
+    const int SIZE=5;   //Size of the array
+    char colors[SIZE];  //Colors array
+    int trys=0;         //Number of trys
+    char guess[SIZE];   //Guess array
+    char result[SIZE];
+    
+    code(colors);      //Random color code
+    cout<<endl;
+    
+    //Starting message
+    cout<<"Decipher the 5-color code"<<endl;
     cout<<"You have 12 attempts to decipher the code"<<endl;
-    cout<<"Enter your first guess"<<endl;
-    
-    //Do-While Loop until 12 attempts
-    do{
-        //Restarts the right and close numbers
-        int right=0,
-            close=0;
+    cout<<endl;
+    //Play Mastermind
+    bool gameWon = false;
+    while(trys<=12 && !gameWon){
+        trys++; //Attempt counter
+        //Key for the colors
+        cout<<"Red = R, "<<"Blue = B, "<<"Yellow = Y"<<endl;
+        cout<<"Purple = P, "<<"Green = G"<<endl;
+        cout<<endl;
         
-        //Input 5-digit code
-        cout<<"Attempt: "<<attps<<endl;
-        cin>>n1>>n2>>n3>>n4>>n5;
-        
-        //Determines the amount of correct numbers in the right place
-        if(!((n1==randN1)&&(n2==randN2)&&(n3==randN3)&&(n4==randN4)&&(n5==randN5))){
-            {
-                //First Number
-                if(n1==randN1){
-                    right++;
-                }
-
-                //Second Number
-                if(n2==randN2){
-                    right++;
-                }
-                
-                //Third Number
-                if(n3==randN3){
-                    right++;
-                }
-                
-                //Fourth Number
-                if(n4==randN4){
-                    right++;
-                }
-                
-                //Fifth Number
-                if(n5==randN5){
-                    right++;
-                }
-            }
-            
-            //Determines the amount of correct numbers in the wrong place
-            {
-                //First Number
-                if(!(n1==randN1)){
-                    if(n1==randN2||n1==randN3||n1==randN4||n1==randN5){
-                    close++;
-                   }   
-                }
-                
-                //Second Number
-                if(!(n2==randN2)){
-                    if(n2==randN1||n2==randN3||n2==randN4||n2==randN5){
-                    close++;
-                   }
-                }
-                
-                //Third Number
-                if(!(n3==randN3)){
-                    if(n3==randN1||n3==randN2||n3==randN4||n1==randN5){
-                    close++;
-                   }
-                }
-                
-                //Fourth Number
-                if(!(n4==randN4)){
-                    if(n4==randN1||n4==randN2||n4==randN3||n4==randN5){
-                    close++;
-                   }
-                }
-                
-                //Fifth Number
-                if(!(n5==randN5)){
-                    if(n5==randN1||n5==randN2||n5==randN3||n5==randN4){
-                    close++;
-                   }
-                } 
+        //Number of trys
+        cout<<"Try: #"<<trys<<endl;
+        //Guess of the code
+        for(int i=0;i<5;i++){
+            cout<<"Color "<<i+1<<": ";
+            cin>>guess[i]; //Input a color
+        }
+        //Verifies if guess matches the code
+        for(int i=0;i<5 && !gameWon ;i++){
+//            sameColorAndPos = false;
+//            if(guess[0]==colors[0]&&
+//               guess[1]==colors[1]&&
+//               guess[2]==colors[2]&&
+//               guess[3]==colors[3]&&
+//               guess[4]==colors[4]){
+//                    cout<<"You Win"<<endl;
+//                    //Exits Program if guess = code
+//                    gameWon = true;
+            if ( testWin(guess, colors,result) ){
+                gameWon = true;
+                cout<<"You Win"<<endl;
                 
             }
-            
-            cout<<"Right Number, Right Position: "<<right<<endl;
-            cout<<"Right Number, Wrong Position: "<<close<<endl;
-            cout<<endl;
-        }
+        }// End Game loop
         
-        //Ends program after 12 failed attempts to decipher the code
-        attps++;
-        if(attps==12){
-            cout<<"You have failed to decipher the code!"<<endl;
-            cout<<"The code was: "
-                    <<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "
-                    <<randN5<<endl;
-            return 0;
+//                //Same color and position
+//                if(guess[i]==colors[i]){
+//                        cout<<"O"<<" ";  
+//                }else if (!sameColorAndPos){
+//                    //Matching color, wrong position for color 1
+//                   if(guess[0]==colors[1]||
+//                       guess[0]==colors[2]||
+//                       guess[0]==colors[3]||
+//                      guess[0]==colors[4]){
+//                            cout<<"X"<<" ";
+//                    }
+//                    //Matching color, wrong position for color 2
+//                    if(guess[1]==colors[0]||
+//                       guess[1]==colors[2]||
+//                       guess[1]==colors[3]||
+//                       guess[1]==colors[4]){
+//                            cout<<"X"<<" ";
+//                    }
+//                    //Matching color, wrong position for color 3
+//                    if(guess[2]==colors[0]||
+//                      guess[2]==colors[1]||
+//                       guess[2]==colors[3]||
+//                      guess[2]==colors[4]){
+//                            cout<<"X"<<" ";
+//                    }
+//                    //Matching color, wrong position for color 4
+//                    if(guess[3]==colors[0]||
+//                       guess[3]==colors[1]||
+//                       guess[3]==colors[2]||
+//                       guess[3]==colors[4]){
+//                            cout<<"X"<<" ";
+//                   }
+//                    //Matching color, wrong position for color 5
+//                    if(guess[4]==colors[0]||
+//                       guess[4]==colors[1]||
+//                       guess[4]==colors[2]||
+//                       guess[4]==colors[3]){
+//                            cout<<"X"<<" ";
+//                    }  
+//                    cout<<endl;
+//                }
+//            }
+//        }
+        //Ends game 
+        cout<<endl;
+        if(trys==12){
+                cout<<"You Lose"<<endl;
         }
-        
-    }while(!((n1==randN1)&&(n2==randN2)&&(n3==randN3)&&(n4==randN4)&&(n5==randN5)));
-    
-    //Outputs Congratulations message
-    cout<<"Congratulations! You have deciphered the code!"<<endl;
-    cout<<randN1<<" "<<randN2<<" "<<randN3<<" "<<randN4<<" "<<randN5<<endl;
+    }
     //Exit stage right!
     return 0;
 }
 
-void code(void){
-    int randN1=rand()%9+1;//[1,9]
-    int randN2=rand()%9+1;//[1,9]
-    int randN3=rand()%9+1;//[1,9]
-    int randN4=rand()%9+1;//[1,9]
-    int randN5=rand()%9+1;//[1,9]
-    
+void code(char colors[]){
+    //Creates the random color code
+    for(int i=0;i<5;i++){
+        int randn=rand()%5+1; //Random integer from [1,5]
+            //Switch the random integer to a color
+            switch(randn){
+                case 1: 
+                    colors[i]='R'; //Red
+                    break;
+                case 2: 
+                    colors[i]='B'; //Blue
+                    break;
+                case 3: 
+                    colors[i]='Y'; //Yellow
+                    break;
+                case 4: 
+                    colors[i]='P'; //Purple
+                    break;
+                case 5: 
+                    colors[i]='G'; //Green
+                    break;
+            }
+            cout<<colors[i];
+    }
 }
-void playMM()
+
+bool testWin(char guess[], char answer[],char result[]){
+    bool win = true;
+    for(int y = 0; y < 5 && win; y++){
+        if ( guess[y] == answer[y] ){
+            result [y]='O';
+            win = true;
+        }else{  
+            for(int i = 0; i < 5; i++){
+                for(int x = 0; x < 5; x++)
+                if(i!=x){
+                    if(guess[i]==answer[x]){
+                        result[i]='X';
+                    }else if(guess[i]!=answer[x]){
+                        result[i]=' ';
+                    }    
+                }
+            //}
+            win = false;
+        }
+        }
+     for(int i=0;i<5;i++){
+                cout<<result[i]<<" ";
+                        
+    }
+    return win;
+}
+
+/*void testPWin(char guess[], char answer[],char result[]){
+    
+    for(int i = 0; i < 5; i++){
+        for(int x = 0; x < 5; x++)
+        if(i!=x){
+            if(guess[i]==answer[x]){
+                result[i]='X';
+            }else if(guess[i]!=answer[x]){
+                result[i]=' ';
+            }    
+        }
+    }
+}
+*/
