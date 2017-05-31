@@ -1,0 +1,19 @@
+Total number of Games = 30000000
+Roll      Wins    Losses
+   2         0    833386
+   3         0   1665259
+   4    832849   1666450
+   5   1330779   1999986
+   6   1897186   2272859
+   7   4998892         0
+   8   1894924   2275003
+   9   1334903   1999633
+  10    832799   1665955
+  11   1665897         0
+  12         0    833240
+Total wins and losses = 30000000
+Percentage wins       = 49.29%
+Percentage losses     = 50.71%
+Maximum number of throws in a game = 52
+Average throw per game=3.38
+Ratio of Longest to shortest game = 10^1.72
