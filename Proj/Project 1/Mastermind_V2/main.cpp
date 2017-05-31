@@ -17,6 +17,7 @@ using namespace std; //Name-space under which systems libraries exist
 //Global Constants 
 
 //Function Prototypes
+int code(int [],int);
 
 //Execution begins here 
 int main(int argc, char** argv) {
@@ -30,7 +31,7 @@ int main(int argc, char** argv) {
                  n4, //Fourth Number Guess
                  n5; //Fifth Number Guess
     int attps=1;     //Attempts
-   
+    const int SIZE=5;
     //Random Number Generator
     int randN1=rand()%9+1;//[1,9]
     int randN2=rand()%9+1;//[1,9]
@@ -38,6 +39,7 @@ int main(int argc, char** argv) {
     int randN4=rand()%9+1;//[1,9]
     int randN5=rand()%9+1;//[1,9]
     
+    code(array,SIZE);
     //Starting game
     cout<<"Decipher the 5-digit code"<<endl;
     cout<<"You have 12 attempts to decipher the code"<<endl;
@@ -145,3 +147,9 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+int code(int a[],int n){
+    for(int i=1;i<=n;i++){
+        a[n]=rand()%9+1;
+    }
+    return a[n];
+}
