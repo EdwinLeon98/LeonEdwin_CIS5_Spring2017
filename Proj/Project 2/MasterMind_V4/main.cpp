@@ -2,7 +2,7 @@
 /* 
  * File:   main.cpp
  * Author: Edwin Leon
- * Created on May 31, 2017, 11:58 AM
+ * Created on June 01, 2017, 12:48 PM
  * Purpose: Mastermind V1 - Project 2
  */
 
@@ -18,8 +18,8 @@ using namespace std; //Name-space under which systems libraries exist
 
 //Function Prototypes
 void code(char []);
-bool testWin(char [], char [],char []);
-void testPWin(char [], char [],char []);
+bool testWin(char [], char []);
+void player(char[]);
 
 //Execution begins here 
 int main(int argc, char** argv) {    
@@ -54,18 +54,14 @@ int main(int argc, char** argv) {
         cout<<"Try: #"<<trys<<endl;
         
         //Guess of the code
-        for(int i=0;i<5;i++){
-            cout<<"Color "<<i+1<<": ";
-            cin>>guess[i]; //Input a color
-        }
-        
+        player(guess);
+ 
         //Verifies if guess matches the code
-        for(int i=0;i<5&&!gameWon;i++){
-            if(testWin(guess,colors,result)){
-                gameWon=true;
-                cout<<"You Win"<<endl;
-            }
-        }// End Game loop
+        if(testWin(guess,colors)){
+            gameWon=true;
+            cout<<endl;
+            cout<<"You Win"<<endl;
+        }
         cout<<endl;
         if(trys==12){
             cout<<"You Lose"<<endl;
@@ -101,42 +97,61 @@ void code(char colors[]){
     }
 }
 
-bool testWin(char guess[],char answer[],char result[]){
-    bool win=true;
-    for(int y=0;y<5&&win;y++){
-        if(guess[y]==answer[y]){
-            result[y]='O';
-            win=true;
-        }else{  
-            for(int x=0;x<5;x++)
-            if(y!=x){
-                if(guess[y]==answer[x]){
-                    result[y]='X';
-                }else{
-                    result[y]=' ';
-                }    
-            }
-            win = false;
-        }
-        for(int z=0;z<5;z++){
-            cout<<result[z]<<" ";
-        }
-        cout<<endl;
+bool testWin(char guess[],char answer[]){
+    int counter=0;
+    char temp[5];
+    for(int y=0;y<5;y++){
+        temp[y]=answer[y];
     }
+    for(int y=0;y<5;y++){
+        if(guess[y]==answer[y]){
+            answer[y]=(-1);
+            counter++;
+        }
+    }
+    cout<<"Right Color, Right Position: "<<counter<<" ";
+    cout<<endl;
+    counter=0;
+    for(int y=0;y<5;y++){ 
+        for(int x=0;x<5;x++){
+            if(guess[y]==answer[x]){
+                counter++;
+            }
+        }
+    }
+    cout<<"Right Color, Wrong Position: "<<counter<<" ";
+    cout<<endl;
+    bool win = false;
+    int count = 0;//count correct
+    for(int y=0;y<5;y++){
+        answer[y]=temp[y];
+        if(guess[y]==temp[y]){
+            count++;
+        }
+    }
+    if(count==5)
+        win=true;
     return win;
 }
 
-/*void testPWin(char guess[], char answer[],char result[]){
-    
-    for(int i = 0; i < 5; i++){
-        for(int x = 0; x < 5; x++)
-        if(i!=x){
-            if(guess[i]==answer[x]){
-                result[i]='X';
-            }else if(guess[i]!=answer[x]){
-                result[i]=' ';
-            }    
+void player(char a[]){
+     for(int i=0;i<5;i++){
+            cout<<"Color "<<i+1<<": ";
+            cin>>a[i]; //Input a color
+                if(a[i]=='r'||a[i]=='R'){
+                    a[i]='R';
+                }
+                if(a[i]=='b'||a[i]=='B'){
+                    a[i]='B';
+                }
+                if(a[i]=='p'||a[i]=='P'){
+                    a[i]='P';
+                }
+                if(a[i]=='g'||a[i]=='G'){
+                    a[i]='G';
+                }
+                if(a[i]=='y'||a[i]=='Y'){
+                    a[i]='Y';
+                }
         }
-    }
 }
-*/
