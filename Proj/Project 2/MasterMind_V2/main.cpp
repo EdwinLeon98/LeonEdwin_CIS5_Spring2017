@@ -3,7 +3,7 @@
  * File:   main.cpp
  * Author: Edwin Leon
  * Created on May 31, 2017, 11:58 AM
- * Purpose: Mastermind V1 - Project 2
+ * Purpose: Mastermind V2 - Project 2
  */
 
 //System Libraries
