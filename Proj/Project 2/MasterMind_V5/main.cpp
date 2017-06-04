@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     char colors[SIZE];  //Colors array
     char guess[SIZE];   //Guess array
     
-    float beg=time(0); //Start time
+    int beg=time(0); //Start time
     do{ 
         menu();      //Menu
         cin>>select; //User choice
@@ -101,7 +101,7 @@ int main(int argc, char** argv) {
                             cout<<endl<<endl;
                         }//End of If loop
             }//End of While loop
-            fileDsp(out,name,winLose,trys);
+            fileDsp(out,name,winLose,trys);//File display
         }
         else if(select==2){ //Hard Mode Mastermind
             const int SIZE=6;   //Size of the array
@@ -110,7 +110,7 @@ int main(int argc, char** argv) {
             //Code creator
             codeH(colors);      //Random color code
             cout<<endl;
-            out.open("Score.dat");
+            out.open("Score.dat"); //Open file
             
             //Player Name
             cout<<"Enter your name: "<<endl;
@@ -130,9 +130,6 @@ int main(int argc, char** argv) {
                 //Key for the colors
                 cout<<"Red = R, "<<"Blue = B, "<<"Yellow = Y"<<endl;
                 cout<<"Purple = P, "<<"Green = G"<<"Orange = O"<<endl;
-                            for(int i=0;i<6;i++){
-                                cout<<colors[i];
-                            }
                 cout<<endl;
                     //Number of tries
                     cout<<"Try: #"<<trys<<endl;
@@ -145,12 +142,12 @@ int main(int argc, char** argv) {
                             gameWon=true;                    //Set gameWon to true
                             cout<<endl;
                             cout<<"Congratulations, You Win!!!"<<endl;//Win message
-                            winLose="Win";
+                            winLose="Win"; //Win message to file
                             cout<<endl;
                         }//End of If loop
                         if(trys>=15){               //If tries = 12
                             cout<<"You Lose"<<endl; //Lose message
-                            winLose="Lose";
+                            winLose="Lose";//Lose message to file
                             //Code
                             cout<<"The code was: ";
                             for(int i=0;i<6;i++){
@@ -159,13 +156,13 @@ int main(int argc, char** argv) {
                             cout<<endl<<endl;
                         }//End of If loop
             }//End of While loop
-            fileDsp(out,name,winLose,trys);
+            fileDsp(out,name,winLose,trys);//File display
         }
     }while(select==1||select==2);
-    float end=time(0);
+    int end=time(0); //Ends time
     cout<<"You played this game for: "<<
-            static_cast<float>(end-beg)/60<<"minutes"<<endl;
-    out.close();
+            (static_cast<float>(end-beg))<<" seconds"<<endl;
+    out.close(); //Close file
     return 0;
 }
 
@@ -423,7 +420,7 @@ void playerH(char a[],int n=6){
         }
 }
 //File Display Function
-void fileDsp(ofstream &out,string n,string b,int a){
-    out<<"Name      Tries"<<endl;
-    out<<n<<setw(8)<<a<<setw(8)<<b<<endl; //Output= name,tries,and win or lose
+void fileDsp(ofstream &out,string n,string wl,int a){
+    out<<"Name      Tries"<<endl;//Header of file
+    out<<n<<setw(8)<<a<<setw(8)<<wl<<endl; //Output= name,tries,and win or lose
 }
